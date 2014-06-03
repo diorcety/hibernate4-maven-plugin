@@ -1,7 +1,7 @@
 <verifications>
   <files>
     <file>
-      <location>target/sql/hibernate3/output.sql</location>
+      <location>target/sql/hibernate4/output.sql</location>
       <contains>Person</contains>
     </file>
   </files>

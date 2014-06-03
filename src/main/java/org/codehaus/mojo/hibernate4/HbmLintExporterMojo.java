@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,22 +20,22 @@ package org.codehaus.mojo.hibernate3;
  */
 
 /**
- * "hbm2dao" generates a set of DAOs.
+ * "hbmlint" scans mappings for errors.
  *
- * @goal hbm2dao
- * @execute phase="test-compile"
+ * @goal hbmlint
+ * @execute phase="compile"
  * @requiresDependencyResolution
  */
-public final class Hbm2DAOExporterMojo
+public final class HbmLintExporterMojo
     extends AbstractHibernateToolMojo
 {
 // -------------------------- OTHER METHODS --------------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
+     * @see org.codehaus.mojo.hibernate4.HibernateMojo#getGoalName()
      */
     public String getGoalName()
     {
-        return "hbm2dao";
+        return "hbmlint";
     }
 }

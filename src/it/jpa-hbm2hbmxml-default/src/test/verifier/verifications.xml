@@ -1,7 +1,7 @@
 <verifications>
   <files>
     <file>
-      <location>target/generated-sources/hibernate3/it/Person.hbm.xml</location>
+      <location>target/generated-sources/hibernate4/it/Person.hbm.xml</location>
     </file>
   </files>
 </verifications>

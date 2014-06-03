@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,22 +20,23 @@ package org.codehaus.mojo.hibernate3;
  */
 
 /**
- * "hbmlint" scans mappings for errors.
+ * "query" is used to execute a HQL query statements and optionally send the output to a file. Can be used for
+ * verifying the mappings and for basic data extraction.
  *
- * @goal hbmlint
+ * @goal query
  * @execute phase="compile"
  * @requiresDependencyResolution
  */
-public final class HbmLintExporterMojo
+public final class QueryExporterMojo
     extends AbstractHibernateToolMojo
 {
 // -------------------------- OTHER METHODS --------------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
+     * @see org.codehaus.mojo.hibernate4.HibernateMojo#getGoalName()
      */
     public String getGoalName()
     {
-        return "hbmlint";
+        return "query";
     }
 }

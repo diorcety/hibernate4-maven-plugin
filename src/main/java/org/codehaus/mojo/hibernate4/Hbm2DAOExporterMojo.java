@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,24 +20,22 @@ package org.codehaus.mojo.hibernate3;
  */
 
 /**
- * "hbm2hbmxml" generates a set of .hbm files. Intended to be used together with a "jdbcconfiguration" when performing
- * reverse engineering, but can be used with any kind of configuration. e.g. to convert from annotation based pojo's
- * to hbm.xml.
+ * "hbm2dao" generates a set of DAOs.
  *
- * @goal hbm2hbmxml
- * @execute phase="compile"
+ * @goal hbm2dao
+ * @execute phase="test-compile"
  * @requiresDependencyResolution
  */
-public final class Hbm2HbmXmlExporterMojo
+public final class Hbm2DAOExporterMojo
     extends AbstractHibernateToolMojo
 {
 // -------------------------- OTHER METHODS --------------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
+     * @see org.codehaus.mojo.hibernate4.HibernateMojo#getGoalName()
      */
     public String getGoalName()
     {
-        return "hbm2hbmxml";
+        return "hbm2dao";
     }
 }

@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3.util;
+package org.codehaus.mojo.hibernate4.util;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -25,7 +25,6 @@ import org.codehaus.plexus.configuration.PlexusConfigurationException;
 import org.codehaus.plexus.configuration.xml.XmlPlexusConfiguration;
 import org.codehaus.plexus.util.FileUtils;
 
-import java.io.File;
 import java.util.List;
 import java.util.Vector;
 

@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,25 +20,24 @@ package org.codehaus.mojo.hibernate3;
  */
 
 /**
- * "hbm2java" is a java code generator. Options for controlling wether JDK 5 syntax can be used and wether the POJO
- * should be annotated with EJB3/Hibernate Annotations.
+ * "hbm2hbmxml" generates a set of .hbm files. Intended to be used together with a "jdbcconfiguration" when performing
+ * reverse engineering, but can be used with any kind of configuration. e.g. to convert from annotation based pojo's
+ * to hbm.xml.
  *
- * @goal hbm2java
- * @execute phase="process-resources"
+ * @goal hbm2hbmxml
+ * @execute phase="compile"
  * @requiresDependencyResolution
  */
-public final class Hbm2JavaExporterMojo
+public final class Hbm2HbmXmlExporterMojo
     extends AbstractHibernateToolMojo
 {
-// ------------------------ INTERFACE METHODS ------------------------
-
-// --------------------- Interface HibernateMojo ---------------------
+// -------------------------- OTHER METHODS --------------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
+     * @see org.codehaus.mojo.hibernate4.HibernateMojo#getGoalName()
      */
     public String getGoalName()
     {
-        return "hbm2java";
+        return "hbm2hbmxml";
     }
 }

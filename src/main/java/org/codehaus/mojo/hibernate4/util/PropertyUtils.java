@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3.util;
+package org.codehaus.mojo.hibernate4.util;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -53,7 +53,7 @@ public class PropertyUtils
         if ( properties == null )
         {
             InputStream is =
-                PropertyUtils.class.getClassLoader().getResourceAsStream( "hibernate3-mapping.properties" );
+                PropertyUtils.class.getClassLoader().getResourceAsStream( "hibernate4-mapping.properties" );
             try
             {
                 properties = new Properties();

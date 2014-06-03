@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,24 +20,23 @@ package org.codehaus.mojo.hibernate3;
  */
 
 /**
- * "hbm2cfgxml" generates a hibernate.cfg.xml. Intended to be used together with a "jdbcconfiguration" when performing
- * reverse engineering, but can be used with any kind of configuration. The "hbm2cfgxml" will contain the properties
- * used and adds mapping entries for each mapped class.
+ * "AntRun" wrapper.
  *
- * @goal hbm2cfgxml
- * @execute phase="compile"
+ * @goal run
  * @requiresDependencyResolution
  */
-public final class Hbm2CfgXmlExporterMojo
+public final class RunExporterMojo
     extends AbstractHibernateToolMojo
 {
-// -------------------------- OTHER METHODS --------------------------
+// ------------------------ INTERFACE METHODS ------------------------
+
+// --------------------- Interface HibernateMojo ---------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
+     * @see org.codehaus.mojo.hibernate4.HibernateMojo#getGoalName()
      */
     public String getGoalName()
     {
-        return "hbm2cfgxml";
+        return "run";
     }
 }

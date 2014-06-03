@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,23 +20,25 @@ package org.codehaus.mojo.hibernate3;
  */
 
 /**
- * "query" is used to execute a HQL query statements and optionally send the output to a file. Can be used for
- * verifying the mappings and for basic data extraction.
+ * "hbm2java" is a java code generator. Options for controlling wether JDK 5 syntax can be used and wether the POJO
+ * should be annotated with EJB3/Hibernate Annotations.
  *
- * @goal query
- * @execute phase="compile"
+ * @goal hbm2java
+ * @execute phase="process-resources"
  * @requiresDependencyResolution
  */
-public final class QueryExporterMojo
+public final class Hbm2JavaExporterMojo
     extends AbstractHibernateToolMojo
 {
-// -------------------------- OTHER METHODS --------------------------
+// ------------------------ INTERFACE METHODS ------------------------
+
+// --------------------- Interface HibernateMojo ---------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
+     * @see org.codehaus.mojo.hibernate4.HibernateMojo#getGoalName()
      */
     public String getGoalName()
     {
-        return "query";
+        return "hbm2java";
     }
 }

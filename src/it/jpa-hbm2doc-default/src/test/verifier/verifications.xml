@@ -1,7 +1,7 @@
 <verifications>
   <files>
     <file>
-      <location>target/site/hibernate3/entities/it/Person.html</location>
+      <location>target/site/hibernate4/entities/it/Person.html</location>
     </file>
   </files>
 </verifications>

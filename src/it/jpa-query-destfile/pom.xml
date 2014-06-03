@@ -24,7 +24,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.codehaus.mojo.hibernate3.it</groupId>
+  <groupId>org.codehaus.mojo.hibernate4.it</groupId>
   <artifactId>jpa-query-destfile</artifactId>
   <version>testing</version>
 
@@ -33,7 +33,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-entitymanager</artifactId>
-      <version>3.3.1.ga</version>
+      <version>@hibernate-entitymanager.version@</version>
       <exclusions>
         <exclusion>
           <groupId>javax.transaction</groupId>
@@ -72,7 +72,7 @@
       </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
-        <artifactId>hibernate3-maven-plugin</artifactId>
+        <artifactId>hibernate4-maven-plugin</artifactId>
         <version>@pom.version@</version>
         <configuration>
           <hibernatetool>

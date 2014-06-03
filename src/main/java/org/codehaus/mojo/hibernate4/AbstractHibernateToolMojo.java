@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3;
+package org.codehaus.mojo.hibernate4;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -20,59 +20,49 @@ package org.codehaus.mojo.hibernate3;
  */
 
 import org.apache.maven.plugin.MojoExecutionException;
-import org.codehaus.mojo.hibernate3.util.PlexusConfigurationUtils;
+import org.codehaus.mojo.hibernate4.util.PlexusConfigurationUtils;
 import org.codehaus.plexus.configuration.PlexusConfiguration;
 import org.codehaus.plexus.configuration.PlexusConfigurationException;
-import org.codehaus.plexus.configuration.xml.XmlPlexusConfiguration;
 
 /**
- * Goal for "cglib" or "javassist" instrumentation.
- *
- * @goal instrument
- * @execute phase="test-compile"
- * @requiresDependencyResolution
+ * Abstract class for any implementing "hibernatetool" goal.
  */
-public final class InstrumentExporterMojo
+public abstract class AbstractHibernateToolMojo
     extends AbstractHibernateMojo
 {
 // ------------------------------ FIELDS ------------------------------
 
     /**
-     * The "instrument" element containing the plugin configuration.
+     * The "hibernatetool" element containing the plugin configuration.
      *
-     * @parameter expression="${instrument}"
+     * @parameter expression="${hibernatetool}"
+     * @required
      */
-    protected PlexusConfiguration instrument;
+    protected PlexusConfiguration hibernatetool;
 
 // ------------------------ INTERFACE METHODS ------------------------
 
 // --------------------- Interface HibernateMojo ---------------------
 
     /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getConfiguration()
+     * @see HibernateMojo#getConfiguration()
      */
     public PlexusConfiguration getConfiguration()
         throws MojoExecutionException
     {
         try
         {
-            if ( instrument == null )
+            // if it isn't the run goal, let's check that the goal exists
+            if ( !"run".equals( getGoalName() ) )
             {
-                instrument = new XmlPlexusConfiguration( "instrument" );
+                hibernatetool.getChild( getGoalName() );
             }
-            return PlexusConfigurationUtils.parseInstrument( instrument, getAntClassLoader(), session );
+            return PlexusConfigurationUtils.parseHibernateTool( hibernatetool, getGoalName(), getAntClassLoader(),
+                                                                session );
         }
         catch ( PlexusConfigurationException e )
         {
             throw new MojoExecutionException( "There was an error parsing the configuration", e );
         }
-    }
-
-    /**
-     * @see org.codehaus.mojo.hibernate3.HibernateMojo#getGoalName()
-     */
-    public String getGoalName()
-    {
-        return "instrument";
     }
 }

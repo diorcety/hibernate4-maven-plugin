@@ -21,17 +21,17 @@
   </parent>
 
   <groupId>org.codehaus.mojo</groupId>
-  <artifactId>hibernate3-maven-plugin</artifactId>
-  <version>3.0</version>
+  <artifactId>hibernate4-maven-plugin</artifactId>
+  <version>4.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
-  <name>Hibernate3 Maven Plugin</name>
+  <name>Hibernate4 Maven Plugin</name>
   <description>
-        Hibernate Tools is a toolset for Hibernate 3 and related projects. The tools provide Maven plugins for
+        Hibernate Tools is a toolset for Hibernate 4 and related projects. The tools provide Maven plugins for
         performing reverse engineering, code generation and interaction with Hibernate.
    </description>
     
-  <url>http://mojo.codehaus.org/hibernate3-maven-plugin/</url>
+  <url>http://mojo.codehaus.org/hibernate4-maven-plugin/</url>
   
   <inceptionYear>2005</inceptionYear>
 
@@ -44,9 +44,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:http://svn.codehaus.org/mojo/tags/hibernate3-maven-plugin-3.0</connection>
-    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/tags/hibernate3-maven-plugin-3.0</developerConnection>
-    <url>http://svn.codehaus.org/mojo/tags/hibernate3-maven-plugin-3.0</url>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/tags/hibernate4-maven-plugin-4.0</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/tags/hibernate4-maven-plugin-4.0</developerConnection>
+    <url>http://svn.codehaus.org/mojo/tags/hibernate4-maven-plugin-4.0</url>
   </scm>
 
   <issueManagement>
@@ -132,18 +132,24 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-tools</artifactId>
-      <version>3.2.4.GA</version>
+      <version>4.3.1.CR1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>ant</groupId>
+          <artifactId>ant</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
-      <version>1.6.1</version>
+      <version>1.5.8</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-nop</artifactId>
-      <version>1.6.1</version>
+      <version>1.5.8</version>
       <scope>runtime</scope>
     </dependency>
 
@@ -151,16 +157,22 @@
     <dependency>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-antrun-plugin</artifactId>
-      <version>1.6</version>
+      <version>1.7</version>
     </dependency>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-utils</artifactId>
-      <version>2.0.5</version>
+      <version>3.0.17</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven</groupId>
       <artifactId>maven-core</artifactId>
+      <version>${maven.version}</version>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
       <version>${maven.version}</version>
       <optional>true</optional>
     </dependency>
@@ -172,7 +184,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-changes-plugin</artifactId>
-        <version>2.6</version>
+        <version>2.10</version>
         <configuration>
           <issueLinkTemplate>%URL%/%ISSUE%</issueLinkTemplate>
         </configuration>
@@ -202,7 +214,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-invoker-plugin</artifactId>
-            <version>1.5</version>
+            <version>1.8</version>
             <configuration>
               <debug>true</debug>
               <postBuildHookScript>verify</postBuildHookScript>
@@ -215,6 +227,7 @@
               <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
               <filterProperties>
                 <hibernate-core.version>${hibernate-core.version}</hibernate-core.version>
+                <hibernate-envers.version>${hibernate-envers.version}</hibernate-envers.version>
                 <hibernate-entitymanager.version>${hibernate-entitymanager.version}</hibernate-entitymanager.version>
               </filterProperties>
             </configuration>
@@ -235,10 +248,11 @@
   </profiles>
 
   <properties>
-    <maven.version>2.2.1</maven.version>
+    <maven.version>3.2.1</maven.version>
     <mojo.java.target>1.5</mojo.java.target>
-    <hibernate-core.version>3.3.2.GA</hibernate-core.version>
-    <hibernate-entitymanager.version>3.3.2.GA</hibernate-entitymanager.version>
+    <hibernate-core.version>4.3.5.Final</hibernate-core.version>
+    <hibernate-envers.version>4.3.5.Final</hibernate-envers.version>
+    <hibernate-entitymanager.version>4.3.5.Final</hibernate-entitymanager.version>
   </properties>
 
 </project>

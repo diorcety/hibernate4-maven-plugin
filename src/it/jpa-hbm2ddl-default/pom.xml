@@ -24,7 +24,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.codehaus.mojo.hibernate3.it</groupId>
+    <groupId>org.codehaus.mojo.hibernate4.it</groupId>
     <artifactId>jpa-hbm2ddl-default</artifactId>
     <version>testing</version>
 
@@ -68,7 +68,7 @@
             <!-- START SNIPPET: pom -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
-                <artifactId>hibernate3-maven-plugin</artifactId>
+                <artifactId>hibernate4-maven-plugin</artifactId>
                 <version>@pom.version@</version>
                 <configuration>
                     <hibernatetool>

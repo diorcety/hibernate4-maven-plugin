@@ -1,4 +1,4 @@
-package org.codehaus.mojo.hibernate3.util;
+package org.codehaus.mojo.hibernate4.util;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
